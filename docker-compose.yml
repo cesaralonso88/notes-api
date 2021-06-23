@@ -1,0 +1,14 @@
+version: '3'
+services:
+  api_serivce:
+    build: .
+    volumes:
+      - .:/home/ec2-user/notes-api
+    ports:
+      - '3000:3000'
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/home/ec2-user/notes-api/data/db
+    ports:
+      - '27017:27017'
